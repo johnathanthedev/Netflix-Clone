@@ -10,3 +10,12 @@ For the frontend, the following is used:
 - TypeScript
 - Bootstrap
 - Auth0 (for auth)
+
+And for the backend:
+
+- Ruby on Rails
+- Auth0
+
+## Future features
+
+Transition to AWS S3 for data storage
