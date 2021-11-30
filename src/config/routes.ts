@@ -1,8 +1,8 @@
 import Dashboard from '../components/views/Dashboard'
 import Home from '../components/views/Home'
-import Route from '../interfaces/main/route'
+import IRoute from '../interfaces/main/route'
 
-const routes: Route[] = [
+const routes: IRoute[] = [
   {
     path: '/', name: 'Home Page', component: Home, exact: true
   },

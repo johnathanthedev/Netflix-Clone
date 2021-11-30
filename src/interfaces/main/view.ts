@@ -1,3 +1,3 @@
-export default interface View {
+export default interface IView {
   name: string;
 }
