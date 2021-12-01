@@ -1,24 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { RouteComponentProps } from 'react-router'
+import { routes, protectedRoutes } from './config/routes'
+import Auth0ProviderWithHistory from './components/auth/Auth0ProviderWithHistory'
+import PrivateRoute from './components/auth/PrivateRoute'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Auth0ProviderWithHistory>
+          <Switch>
+            {routes.map((route, index) => {
+              return (
+                <Route
+                  key={index}
+                  path={route.path}
+                  exact={route.exact}
+                  render={(props: RouteComponentProps<any>) => (
+                    <route.component
+                      {...props}
+                      {...route.props}
+                    />
+                  )}
+                />
+              )
+            })}
+            {protectedRoutes.map((route, index) => {
+              return (
+                <PrivateRoute
+                  key={index}
+                  path={route.path}
+                  exact={route.exact}
+                  render={(props: RouteComponentProps<any>) => (
+                      <route.component
+                      {...props}
+                      {...route.props}
+                    />
+                  )}
+                />
+              )
+            })}
+          </Switch>
+        </Auth0ProviderWithHistory>
+      </BrowserRouter>
     </div>
   );
 }
