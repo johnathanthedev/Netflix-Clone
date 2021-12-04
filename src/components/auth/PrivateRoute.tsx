@@ -25,11 +25,11 @@ const PrivateRoute = ({
 
   useEffect(() => {
     const getUserMetadata = async () => {
-      const token = await getAccessTokenSilently()
-      const auth0_user_obj = {
-        user,
-        client_access_token: token 
-      }
+      // const token = await getAccessTokenSilently()
+      // const auth0_user_obj = {
+      //   user,
+      //   client_access_token: token 
+      // }
       // console.log(auth0_user_obj)
     }
     getUserMetadata()

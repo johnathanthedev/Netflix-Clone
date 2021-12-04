@@ -57,3 +57,8 @@ export interface GetPopularMoviesAndShowsAction {
     "shows": IShow[] 
   }
 }
+
+export interface SetCurrentPopularMovieOrShowAction {
+  type: ActionTypes.SET_CURRENT_POPULAR_MOVIE_OR_SHOW,
+  payload: IMovie | IShow
+}

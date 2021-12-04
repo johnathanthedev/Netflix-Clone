@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
 import { tmdb_api, tmdb_api_key } from '../../../config/constants/main'
-import { IPopMovieRes, IPopShowRes, GetPopularMoviesAndShowsAction, IMovie, IShow } from '../../../interfaces/tmdb'
+import { IPopMovieRes, IPopShowRes, GetPopularMoviesAndShowsAction, IMovie, IShow, SetCurrentPopularMovieOrShowAction } from '../../../interfaces/tmdb'
 import { ActionTypes } from '../../types/index'
+import { randomObjectPropertyPicker } from '../../../lib/general'
 
 export const getPopularMoviesAndShows = () => {
   return async (dispatch: Dispatch) => {
@@ -30,6 +31,21 @@ export const getPopularMoviesAndShows = () => {
     dispatch<GetPopularMoviesAndShowsAction>({
       type: ActionTypes.GET_POPULAR_MOVIES_AND_SHOWS,
       payload: { movies, shows }
+    })
+
+    const moviesAndShows = { movies, shows }
+    let popHolder = randomObjectPropertyPicker(moviesAndShows);
+
+    function recursiveFunc() {
+      if (popHolder.length) {
+        popHolder = randomObjectPropertyPicker(popHolder)
+      }
+    }
+    recursiveFunc()
+    
+    dispatch<SetCurrentPopularMovieOrShowAction>({
+      type: ActionTypes.SET_CURRENT_POPULAR_MOVIE_OR_SHOW,
+      payload: popHolder
     })
   }
 }
