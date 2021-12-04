@@ -1,0 +1,3 @@
+export enum ActionTypes {
+  GET_POPULAR_MOVIES_AND_SHOWS = 'GET_POPULAR_MOVIES_AND_SHOWS'
+}

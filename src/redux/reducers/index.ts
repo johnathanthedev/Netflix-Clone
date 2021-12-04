@@ -1,5 +1,11 @@
 import { combineReducers } from 'redux'
+import { tmdbReducer } from './tmdb'
+import { IMovie } from '../../interfaces/tmdb'
 
-export const reducers = combineReducers({
-  counter: () => 1
+export interface StoreState {
+  moviesAndShows: IMovie[]
+}
+
+export const reducers = combineReducers<StoreState>({
+  moviesAndShows: tmdbReducer
 })

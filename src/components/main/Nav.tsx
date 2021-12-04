@@ -1,5 +1,5 @@
 const Nav = (): JSX.Element => {
-  console.log("Nav")
+  // console.log("Nav")
   return (
     <div>
       <h1>poop</h1>

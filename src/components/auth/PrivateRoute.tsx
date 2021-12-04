@@ -30,7 +30,7 @@ const PrivateRoute = ({
         user,
         client_access_token: token 
       }
-      console.log(auth0_user_obj)
+      // console.log(auth0_user_obj)
     }
     getUserMetadata()
   }, [user, getAccessTokenSilently])
