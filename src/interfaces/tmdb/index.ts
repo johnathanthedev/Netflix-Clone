@@ -1,5 +1,4 @@
 import { ActionTypes } from '../../redux/types'
-
 export interface IMovie {
   adult: boolean;
   backdrop_path: string;
@@ -17,6 +16,22 @@ export interface IMovie {
   vote_count: number;
 }
 
+export interface IShow {
+  backdrop_path: string;
+  first_air_date: string;
+  genre_ids: number[];
+  id: number;
+  name: string;
+  origin_country: string[];
+  original_language: string;
+  original_name: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  vote_average: number;
+  vote_count: number;
+}
+
 export interface IPopMovieRes {
   page: number;
   results: {
@@ -26,7 +41,19 @@ export interface IPopMovieRes {
   total_results: number;
 }
 
+export interface IPopShowRes {
+  page: number;
+  results: {
+    [index: number]: IShow;
+  }
+  total_pages: number;
+  total_results: number;
+}
+
 export interface GetPopularMoviesAndShowsAction {
   type: ActionTypes.GET_POPULAR_MOVIES_AND_SHOWS;
-  payload: IMovie[]
+  payload: { 
+    "movies": IMovie[],
+    "shows": IShow[] 
+  }
 }

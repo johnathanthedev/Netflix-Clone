@@ -1,5 +1,4 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import axios from 'axios';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import View from '../../interfaces/main/view'
@@ -11,7 +10,7 @@ const Dashboard: React.FunctionComponent<View> = (props) => {
 
   useEffect(() => {
     dispatch(getPopularMoviesAndShows())
-  }, [])
+  }, [dispatch])
 
   const LogoutButton = () => {
     const { logout} = useAuth0();
