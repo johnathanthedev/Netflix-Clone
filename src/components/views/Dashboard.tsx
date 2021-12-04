@@ -1,5 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import View from '../../interfaces/main/view'
+import Nav from '../main/Nav'
+import Row from '../main/Row'
 
 const Dashboard: React.FunctionComponent<View> = (props) => {
   const LogoutButton = () => {
@@ -13,6 +15,7 @@ const Dashboard: React.FunctionComponent<View> = (props) => {
 
   return (
     <div>
+      <Nav/>
       Dashboard
       <div>
         <LogoutButton/>
