@@ -32,6 +32,11 @@ export interface IShow {
   vote_count: number;
 }
 
+export interface IGenre {
+  id: number,
+  name: string
+}
+
 export interface IPopMovieRes {
   page: number;
   results: {
@@ -50,11 +55,33 @@ export interface IPopShowRes {
   total_results: number;
 }
 
+export interface IGenreRes {
+  genres: {
+    [index: number]: IGenre;
+  }
+}
+
 export interface GetPopularMoviesAndShowsAction {
   type: ActionTypes.GET_POPULAR_MOVIES_AND_SHOWS;
   payload: { 
     "movies": IMovie[],
     "shows": IShow[] 
+  }
+}
+
+export interface GetTopRatedMoviesAndShowsAction {
+  type: ActionTypes.GET_TOP_RATED_MOVIES_AND_SHOWS;
+  payload: { 
+    "topMovies": IMovie[],
+    "topShows": IShow[] 
+  }
+}
+
+export interface GetMovieAndShowGenresAction {
+  type: ActionTypes.GET_MOVIE_AND_SHOW_GENRES;
+  payload: {
+    "movieGenres": IGenre[],
+    "showGenres": IGenre[]
   }
 }
 

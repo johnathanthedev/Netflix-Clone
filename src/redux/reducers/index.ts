@@ -1,12 +1,16 @@
 import { combineReducers } from 'redux'
 import { tmdbReducer } from './tmdb'
-import { IMovie, IShow } from '../../interfaces/tmdb'
+import { IGenre, IMovie, IShow } from '../../interfaces/tmdb'
 
 export interface StoreState {
   moviesAndShows: { 
-    "popularMovies": IMovie[],
-    "popularShows": IShow[],
-    "currentPopular": IMovie | IShow
+    "movies": IMovie[],
+    "shows": IShow[],
+    "currentPopular": IMovie | IShow,
+    "topMovies": IMovie[],
+    "topShows": IShow[],
+    "movieGenres": IGenre[],
+    "showGenres": IGenre[]
   }   
 }
 
