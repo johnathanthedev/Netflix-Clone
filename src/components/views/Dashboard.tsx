@@ -4,13 +4,21 @@ import { useDispatch } from 'react-redux';
 import View from '../../interfaces/main/view'
 import Nav from '../main/Nav'
 import { getPopularMoviesAndShows } from '../../redux/actions/tmdb'
+import { getFavoritesList } from '../../redux/actions/favoritesList'
 
 const Dashboard: React.FunctionComponent<View> = (props) => {
   const dispatch = useDispatch();
+  const { getAccessTokenSilently } = useAuth0()
 
   useEffect(() => {
     dispatch(getPopularMoviesAndShows())
-  }, [dispatch])
+    const getUserMetadata = async () => {
+      const token = await getAccessTokenSilently()
+      const authString = `Bearer ${token}`
+      dispatch(getFavoritesList(authString))
+    }
+    getUserMetadata()
+  }, [dispatch, getAccessTokenSilently])
 
   const LogoutButton = () => {
     const { logout} = useAuth0();

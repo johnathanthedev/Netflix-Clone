@@ -10,7 +10,7 @@ const PrivateRoute = ({
   path,
   ...rest
 }: PrivateRouteProps) => {
-  const { isLoading, isAuthenticated, user, getAccessTokenSilently } = useAuth0();
+  const { isLoading, isAuthenticated } = useAuth0();
   let history = useHistory();
 
   useEffect(():any  => {
@@ -22,18 +22,6 @@ const PrivateRoute = ({
     }
     recursiveFunc()
   }, [isAuthenticated, isLoading, history]);
-
-  useEffect(() => {
-    const getUserMetadata = async () => {
-      // const token = await getAccessTokenSilently()
-      // const auth0_user_obj = {
-      //   user,
-      //   client_access_token: token 
-      // }
-      // console.log(auth0_user_obj)
-    }
-    getUserMetadata()
-  }, [user, getAccessTokenSilently])
 
   const render = (props: RouteProps) => {
     return (

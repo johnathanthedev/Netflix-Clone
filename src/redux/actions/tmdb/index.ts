@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Dispatch } from 'redux';
 import { tmdb_api, tmdb_api_key } from '../../../config/constants/main'
 import { IPopMovieRes, IPopShowRes, GetPopularMoviesAndShowsAction, IMovie, IShow, SetCurrentPopularMovieOrShowAction, GetTopRatedMoviesAndShowsAction, IGenreRes, IGenre, GetMovieAndShowGenresAction } from '../../../interfaces/tmdb'
-import { ActionTypes } from '../../types/index'
+import { ActionTypes } from '../../types/tmdb'
 import { randomObjectPropertyPicker } from '../../../lib/general'
 
 export const getPopularMoviesAndShows = () => {

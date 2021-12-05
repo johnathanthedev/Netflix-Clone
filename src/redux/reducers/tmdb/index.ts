@@ -1,5 +1,5 @@
-import { ActionTypes } from '../../types/index'
-import { Action as TMDBAction } from '../../types'
+import { ActionTypes } from '../../types/tmdb'
+import { Action as TMDBAction } from '../../types/tmdb'
 
 export const tmdbReducer = (state: any = [], action: TMDBAction) => {
   switch(action.type) {

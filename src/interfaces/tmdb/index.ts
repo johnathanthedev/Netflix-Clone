@@ -1,4 +1,4 @@
-import { ActionTypes } from '../../redux/types'
+import { ActionTypes } from '../../redux/types/tmdb'
 export interface IMovie {
   adult: boolean;
   backdrop_path: string;
