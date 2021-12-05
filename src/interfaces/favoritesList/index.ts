@@ -14,3 +14,8 @@ export interface GetFavoritesListAction {
   type: ActionTypes.GET_FAVORITES_LIST,
   payload: IFavoriteItem[]
 }
+
+export interface AddItemToFavoritesList {
+  type: ActionTypes.ADD_ITEM_TO_FAVORITES_LIST,
+  payload: IFavoriteItem[]
+}

@@ -1,4 +1,5 @@
 import { 
+  AddItemToFavoritesList,
   GetFavoritesListAction, 
 } from '../../interfaces/favoritesList'
 
@@ -9,4 +10,5 @@ export enum ActionTypes {
 }
 
 export type Action = 
-GetFavoritesListAction 
+GetFavoritesListAction | 
+AddItemToFavoritesList

@@ -30,14 +30,7 @@ export const getFavoritesList = (auth_string: string) => {
 
 export const addItemToFavoritesList = (auth_string: string, favorited_item: IFavoriteItem) => {
   return async (dispatch: Dispatch) => {
-    // console.log(auth_string)
-    // const add_favorited_item_to_list_response = await axios.post(`${netflix_clone_api}/user_favorite_movies`, {
-    //   headers: {
-    //     Authorization: auth_string
-    //   }
-    // })
-
-    const create_res = await fetch(`${netflix_clone_api}/user_favorite_movies`, {
+    const add_favorited_item_to_list_response = await fetch(`${netflix_clone_api}/user_favorite_movies`, {
       method: "POST",
       headers: {
         'Authorization': auth_string,
@@ -48,14 +41,9 @@ export const addItemToFavoritesList = (auth_string: string, favorited_item: IFav
       return data
     })
 
-    console.log(create_res)
-
-    // const user_favorites_list_response = await axios.get(`${netflix_clone_api}/user_favorite_movies`, {
-    //   headers: {
-    //     Authorization: auth_string
-    //   }
-    // })
-
-    // console.log(add_favorited_item_to_list_response)
+    dispatch({
+      type: ActionTypes.ADD_ITEM_TO_FAVORITES_LIST,
+      payload: add_favorited_item_to_list_response
+    })
   }
 }
