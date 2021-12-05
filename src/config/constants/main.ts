@@ -3,3 +3,4 @@ export const auth0_client_id: string = (process.env.REACT_APP_AUTH0_CLIENT_ID as
 export const auth0_audience: string = (process.env.REACT_APP_AUTH0_NETFLIX_CLONE_AUDIENCE as string);
 export const tmdb_api: string = (process.env.REACT_APP_TMDB_API_V3 as string);
 export const tmdb_api_key: string = (process.env.REACT_APP_TMDB_API_KEY as string);
+export const netflix_clone_api: string = (process.env.REACT_APP_NETFLIX_CLONE_API as string);
