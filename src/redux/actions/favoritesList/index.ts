@@ -47,3 +47,19 @@ export const addItemToFavoritesList = (auth_string: string, favorited_item: IFav
     })
   }
 }
+
+export const removeItemFromFavoritesList = (auth_string: string, favorite_item_id: number) => {
+  return async (dispatch: Dispatch) => {
+    fetch(`${netflix_clone_api}/user_favorite_movies/${favorite_item_id}`, {
+      method: "DELETE",
+      headers: {
+        'Authorization': auth_string
+      }
+    })
+
+    dispatch({
+      type: ActionTypes.REMOVE_ITEM_FROM_FAVORITES_LIST,
+      payload: favorite_item_id
+    })
+  }
+}

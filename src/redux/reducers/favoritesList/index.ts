@@ -6,12 +6,18 @@ export const favoritesListReducer = (state: any = [], action: FavoritesListActio
     case ActionTypes.GET_FAVORITES_LIST:
       return {
         ...state,
-        favoritesList: action.payload
+        list: action.payload
       }
     case ActionTypes.ADD_ITEM_TO_FAVORITES_LIST:
       return {
         ...state,
-        favoritesList: [...state.favoritesList, action.payload]
+        list: [...state.list, action.payload]
+      }
+    case ActionTypes.REMOVE_ITEM_FROM_FAVORITES_LIST:
+      return {
+        list: [
+          ...state.list.filter((item: any) => item.id !== action.payload)
+        ]
       }
     default:
       return state;

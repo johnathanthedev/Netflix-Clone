@@ -19,3 +19,8 @@ export interface AddItemToFavoritesList {
   type: ActionTypes.ADD_ITEM_TO_FAVORITES_LIST,
   payload: IFavoriteItem[]
 }
+
+export interface RemoveItemFromFavoritesList {
+  type: ActionTypes.REMOVE_ITEM_FROM_FAVORITES_LIST,
+  payload: number
+}

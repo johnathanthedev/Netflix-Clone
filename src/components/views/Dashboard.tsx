@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import View from '../../interfaces/main/view'
 import Nav from '../main/Nav'
 import { getPopularMoviesAndShows } from '../../redux/actions/tmdb'
-import { getFavoritesList, addItemToFavoritesList } from '../../redux/actions/favoritesList'
+import { getFavoritesList, addItemToFavoritesList, removeItemFromFavoritesList } from '../../redux/actions/favoritesList'
 
 const Dashboard: React.FunctionComponent<View> = (props) => {
   const dispatch = useDispatch();
@@ -59,6 +59,19 @@ const Dashboard: React.FunctionComponent<View> = (props) => {
     )
   }
 
+  const RemoveFavoriteItemButton = () => {
+    const handleRemoveFavoriteItem = async () => {
+      const token = await getAccessTokenSilently()
+      const authString = `Bearer ${token}`
+      const favItemID = 10
+
+      dispatch(removeItemFromFavoritesList(authString, favItemID))
+    }
+    return (
+      <button onClick={handleRemoveFavoriteItem}>Remove favorite item</button>
+    )
+  }
+
   return (
     <div>
       <Nav/>
@@ -66,6 +79,7 @@ const Dashboard: React.FunctionComponent<View> = (props) => {
       <div>
         <LogoutButton/>
         <CreateFavoriteItemButton/>
+        <RemoveFavoriteItemButton/>
       </div>
     </div>
   )

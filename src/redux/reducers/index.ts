@@ -14,8 +14,8 @@ export interface StoreState {
     "showGenres": IGenre[],
   },
   favoritesList: {
-    "favoritesList": IFavoriteItem[]
-  }   
+    "list": IFavoriteItem[]
+  }
 }
 
 export const reducers = combineReducers<StoreState>({
