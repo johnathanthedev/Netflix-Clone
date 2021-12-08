@@ -13,9 +13,13 @@ const Dashboard: React.FunctionComponent<View> = (props) => {
   useEffect(() => {
     dispatch(getPopularMoviesAndShows())
     const getUserMetadata = async () => {
-      const token = await getAccessTokenSilently()
-      const authString = `Bearer ${token}`
-      dispatch(getFavoritesList(authString))
+      try {
+        const token = await getAccessTokenSilently()
+        const authString = `Bearer ${token}`
+        dispatch(getFavoritesList(authString))  
+      } catch (error) {
+        console.log(error)
+      }
     }
     getUserMetadata()
   }, [dispatch, getAccessTokenSilently])
