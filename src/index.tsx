@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk' 
 import { reducers } from './redux/reducers'
 import { composeWithDevTools } from 'redux-devtools-extension';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/styles/test.css'
 
 const middleware = [
   thunk
