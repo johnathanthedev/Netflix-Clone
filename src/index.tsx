@@ -1,30 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import { createStore, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk' 
-import { reducers } from './redux/reducers'
-import { composeWithDevTools } from 'redux-devtools-extension';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './assets/styles/test.css'
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import { reducers } from "./redux/reducers";
+import { composeWithDevTools } from "redux-devtools-extension";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./assets/styles/scss/index.scss";
 
-const middleware = [
-  thunk
-]
+const middleware = [thunk];
 
 const store = createStore(
   reducers,
-  composeWithDevTools(
-    applyMiddleware(...middleware),
-  )
+  composeWithDevTools(applyMiddleware(...middleware))
 );
 
 ReactDOM.render(
   <React.StrictMode>
-   <Provider store={store}>
-    <App />
-   </Provider>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );

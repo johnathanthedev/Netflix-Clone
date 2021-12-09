@@ -12,7 +12,11 @@ const NavBar = (): JSX.Element => {
     const SignInButton = (): JSX.Element => {
       const { loginWithRedirect } = useAuth0();
 
-      return <Button onClick={() => loginWithRedirect()}>Sign In</Button>;
+      return (
+        <Button className="bg-red" onClick={() => loginWithRedirect()}>
+          Sign In
+        </Button>
+      );
     };
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -30,7 +34,10 @@ const NavBar = (): JSX.Element => {
             </Nav>
             <Nav>
               <Dropdown className="mr-3">
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                <Dropdown.Toggle
+                  className="dropdown-outline"
+                  id="dropdown-basic"
+                >
                   Language
                 </Dropdown.Toggle>
                 <Dropdown.Menu>

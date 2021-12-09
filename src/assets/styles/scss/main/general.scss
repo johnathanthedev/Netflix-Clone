@@ -1,0 +1,23 @@
+.dropdown-outline {
+  background-color: transparent !important;
+  border-color: white !important;
+  &:hover {
+    background-color: transparent !important;
+    border-color: white !important;
+  }
+  &:focus {
+    background-color: transparent !important;
+    border-color: white !important;
+    box-shadow: none;
+  }
+  &:active {
+    background-color: transparent !important;
+    border-color: white !important;
+    box-shadow: none;
+  }
+}
+
+.bg-red {
+  background-color: #e50914 !important;
+  border-color: #e50914 !important;
+}
