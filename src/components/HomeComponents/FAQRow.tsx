@@ -10,14 +10,14 @@ const FAQRow = (): JSX.Element => {
     <Container fluid style={{ backgroundColor: "#000000" }}>
       <Row>
         <Col
-          className="d-flex flex-column justify-content-center my-5 py-5"
+          className="d-flex flex-column justify-content-center my-4 py-4"
           style={{
             maxWidth: "900px",
             margin: "0 auto",
             minHeight: "750px",
           }}
         >
-          <h1 className="text-white text-large text-center">
+          <h1 className="text-white text-large text-center pb-4">
             Frequently Asked Questions
           </h1>
           <div
