@@ -1,35 +1,28 @@
 import View from "../../interfaces/main/view";
-import { Button, Container, FormControl, InputGroup } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import React from "react";
 import HorizontalLine from "../HomeComponents/HorizontalLine";
 import HomeRow from "../HomeComponents/HomeRow";
 import strangerThingsPhoneImage from "../../assets/other/netflix/stranger-things-phone.jpg";
 import strangerThingsBoxshot from "../../assets/other/netflix/stranger-things-boxshot.png";
-import devicesImage from "../../assets/other/netflix/devices-image.png";
-import strangerThingsVideo from "../../assets/other/netflix/stranger-things-video.m4v";
 import kidsThemeImage from "../../assets/other/netflix/kids-theme-pic.png";
 import strangerThingsDevicesAndVideo from "../../assets/other/netflix/stranger-things-devices-and-video.mp4";
 import tvVideo from "../../assets/other/netflix/tv-video.mp4";
 import FAQRow from "../HomeComponents/FAQRow";
 import EmailInput from "../shared/netflix/EmailInput";
+import Footer from "../main/Footer";
 
 const Home: React.FunctionComponent<View> = () => {
   return (
     <Container fluid className="homepage">
       <div className="main-section">
-        <h1 className="d-block text-center">
+        <h1 className="d-block text-center text-large">
           Unlimited movies, TV <br /> shows, and more.
         </h1>
-        <h5 className="d-block text-white text-center">
+        <p className="d-block text-white text-center sub-text-medium">
           Watch anywhere. Cancel anytime.
-        </h5>
-        <div className="email-submission">
-          <p className="text-white text-center">
-            Ready to watch? Enter your email to create or restart your
-            membership.
-          </p>
-          <EmailInput />
-        </div>
+        </p>
+        <EmailInput />
       </div>
       <HorizontalLine />
       <HomeRow
@@ -62,6 +55,7 @@ const Home: React.FunctionComponent<View> = () => {
       <HorizontalLine />
       <FAQRow />
       <HorizontalLine />
+      <Footer />
     </Container>
   );
 };

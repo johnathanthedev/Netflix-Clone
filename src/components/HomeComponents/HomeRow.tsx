@@ -11,18 +11,18 @@ interface HomeRowProps {
 const HomeRow = (props: HomeRowProps): JSX.Element => {
   const EvensContainer = (): JSX.Element => {
     return (
-      <Container fluid style={{ height: "400px", backgroundColor: "#000000" }}>
+      <Container fluid style={{ height: "450px", backgroundColor: "#000000" }}>
         <Row>
           <Col
-            className="d-flex flex-row-reverse justify-content-around"
-            style={{ maxWidth: "900px", height: "400px", margin: "0 auto" }}
+            className="d-flex flex-row-reverse justify-content-between"
+            style={{ maxWidth: "1100px", height: "400px", margin: "0 auto" }}
           >
             <div
               className="text-white d-flex justify-content-center align-itens-center flex-column"
-              style={{ width: "400px", height: "300px", alignSelf: "center" }}
+              style={{ width: "500px", height: "300px", alignSelf: "center" }}
             >
-              <h1>{props.title}</h1>
-              <p>{props.sub}</p>
+              <h1 className="text-large">{props.title}</h1>
+              <p className="sub-text-medium">{props.sub}</p>
             </div>
             <HomeMedia title={props.title} mediaURLs={props.mediaURLs} />
           </Col>
@@ -33,18 +33,18 @@ const HomeRow = (props: HomeRowProps): JSX.Element => {
 
   const OddsContainer = (): JSX.Element => {
     return (
-      <Container fluid style={{ height: "400px", backgroundColor: "#000000" }}>
+      <Container fluid style={{ height: "450px", backgroundColor: "#000000" }}>
         <Row>
           <Col
-            className="d-flex"
-            style={{ maxWidth: "900px", margin: "0 auto" }}
+            className="d-flex justify-content-between"
+            style={{ maxWidth: "1100px", margin: "0 auto" }}
           >
             <div
               className="text-white d-flex justify-content-center align-itens-center flex-column"
-              style={{ width: "350px", height: "300px", alignSelf: "center" }}
+              style={{ width: "500px", height: "450px", alignSelf: "center" }}
             >
-              <h1>{props.title}</h1>
-              <p>{props.sub}</p>
+              <h1 className="text-large">{props.title}</h1>
+              <p className="sub-text-medium">{props.sub}</p>
             </div>
             <HomeMedia title={props.title} mediaURLs={props.mediaURLs} />
           </Col>
