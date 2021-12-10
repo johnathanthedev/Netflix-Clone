@@ -4,7 +4,6 @@ import Faq from "./Faq";
 import netflixJson from "../../data/netflix/main.json";
 
 const FAQRow = (): JSX.Element => {
-  const testeroo = ["content1", "content2"];
   const copyArr = netflixJson.copywrite.homepage.faq;
   return (
     <Container fluid style={{ backgroundColor: "#000000" }}>
