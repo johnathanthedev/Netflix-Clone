@@ -1,0 +1,78 @@
+.dropdown-outline {
+  background-color: transparent !important;
+  border-color: white !important;
+  box-shadow: none !important;
+
+  &:hover {
+    background-color: transparent !important;
+    border-color: white !important;
+  }
+  &:focus {
+    background-color: transparent !important;
+    border-color: white !important;
+  }
+  &:active {
+    background-color: transparent !important;
+    border-color: white !important;
+  }
+}
+
+.bg-red {
+  background-color: #e50914 !important;
+  border-color: #e50914 !important;
+  box-shadow: none !important;
+}
+
+.navbar-default {
+  position: absolute;
+  width: 100%;
+  background: rgb(1, 1, 1) !important;
+  background: linear-gradient(
+    0deg,
+    rgba(1, 1, 1, 0) 0%,
+    rgba(1, 1, 1, 1) 50%
+  ) !important;
+}
+
+.homepage {
+  margin: 0;
+  padding: 0;
+  & .main-section {
+    background-image: linear-gradient(
+        0deg,
+        rgba(1, 1, 1, 1) 0%,
+        rgba(1, 1, 1, 0) 50%,
+        rgba(1, 1, 1, 1) 100%
+      ),
+      url("../../../images/netflix/homepage-main-bg.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 90vh;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+    & h1 {
+      color: white;
+    }
+  }
+}
+
+.horizontal-line {
+  margin: 0 !important;
+  height: 7.5px !important;
+  opacity: 1;
+  background-color: #222;
+}
+
+.text-large {
+  font-size: 3.125rem !important;
+}
+
+.text-medium {
+  font-size: 1.25rem !important;
+}
+
+.sub-text-medium {
+  font-size: 1.625rem !important;
+}
