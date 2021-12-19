@@ -5,22 +5,53 @@ import {
   GET_MOVIE_AND_SHOW_GENRES,
   SET_CURRENT_POPULAR_MOVIE_OR_SHOW,
 } from "../../config/constants/tmdb";
+import { SET_LOADING_STATUS } from "../../config/constants/general";
 import GeneralObjectHelper from "../../helpers/generalObjectHelper";
 import GeneralArrayHelper from "../../helpers/generalArrayHelper";
+import { getVideos } from "../../lib/netflix/general";
 
-export const getPopularMoviesAndShows = () => async (dispatch) => {
+export const getPopularMoviesAndShows = () => (dispatch) => {
   try {
+    dispatch({
+      type: SET_LOADING_STATUS,
+      payload: true,
+    });
+
     const popular_movies_url = `${process.env.REACT_APP_TMDB_API_V3}/movie/popular?api_key=${process.env.REACT_APP_TMDB_API_KEY}&page=1`; // make service for page no.
     const popular_shows_url = `${process.env.REACT_APP_TMDB_API_V3}/tv/popular?api_key=${process.env.REACT_APP_TMDB_API_KEY}&page=1`;
-    const popularMoviesRes = await axios.get(`${popular_movies_url}`);
-    const popularShowsRes = await axios.get(`${popular_shows_url}`);
-    const popularMoviesAndShowsObj = {};
+    const popularMovies = [];
+    const popularShows = [];
 
-    popularMoviesAndShowsObj.movies = popularMoviesRes.data.results;
-    popularMoviesAndShowsObj.shows = popularShowsRes.data.results;
+    fetch(`${popular_movies_url}`)
+      .then((response) => response.json())
+      .then((data) => {
+        data.results.map((movie) => {
+          movie.movie_or_show = "movie";
+          movie.videos = getVideos(movie);
+          popularMovies.push(movie);
+        });
+      });
+
+    fetch(`${popular_shows_url}`)
+      .then((response) => response.json())
+      .then((data) => {
+        data.results.map((show) => {
+          show.movie_or_show = "show";
+          show.videos = getVideos(show);
+          popularShows.push(show);
+        });
+      });
+
     dispatch({
       type: GET_POPULAR_MOVIES_AND_SHOWS,
-      payload: popularMoviesAndShowsObj,
+      payload: {
+        movies: popularMovies,
+        shows: popularShows,
+      },
+    });
+    dispatch({
+      type: SET_LOADING_STATUS,
+      payload: false,
     });
   } catch (error) {
     console.log(error);
@@ -52,7 +83,6 @@ export const setCurrentPopularMovieOrShow =
     const randomProperty = generalObjectHelper.randomPropertySelector();
     const generalArrayHelper = new GeneralArrayHelper(randomProperty);
     const item = generalArrayHelper.randomElementSelector();
-
     dispatch({
       type: SET_CURRENT_POPULAR_MOVIE_OR_SHOW,
       payload: item,

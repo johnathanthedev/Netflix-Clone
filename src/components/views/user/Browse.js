@@ -14,32 +14,25 @@ const Browse = () => {
   // const { getAccessTokenSilently } = useAuth0();
 
   useEffect(() => {
-    dispatch(getMoviesAndShowsGenres());
     dispatch(getPopularMoviesAndShows());
+    dispatch(getMoviesAndShowsGenres());
     dispatch(getTopRatedMoviesAndShows());
   }, [dispatch]);
 
   useEffect(() => {
-    tmdbState.popularMoviesAndShows.movies.length &&
-      (() => {
-        const popularMoviesAndShowsObj = {};
-        popularMoviesAndShowsObj.movies =
-          tmdbState.popularMoviesAndShows.movies;
-        popularMoviesAndShowsObj.shows = tmdbState.popularMoviesAndShows.shows;
-        dispatch(setCurrentPopularMovieOrShow(popularMoviesAndShowsObj));
-      })();
-  }, [
-    dispatch,
-    tmdbState.popularMoviesAndShows.movies,
-    tmdbState.popularMoviesAndShows.shows,
-  ]);
+    if (tmdbState.popularMoviesAndShows.movies.length) {
+      console.log(tmdbState.popularMoviesAndShows.movies[0].videos);
+    }
+  }, [tmdbState]);
 
   const LogoutButton = () => {
     const { logout } = useAuth0();
     return (
-      <button onClick={() => logout({ returnTo: window.location.origin })}>
-        Log Out
-      </button>
+      <div>
+        <button onClick={() => logout({ returnTo: window.location.origin })}>
+          Log Out
+        </button>
+      </div>
     );
   };
 

@@ -4,6 +4,7 @@ import {
   GET_MOVIE_AND_SHOW_GENRES,
   SET_CURRENT_POPULAR_MOVIE_OR_SHOW,
 } from "../../config/constants/tmdb";
+import { SET_LOADING_STATUS } from "../../config/constants/general";
 
 const initialState = {
   topRatedMoviesAndShows: {
@@ -19,6 +20,7 @@ const initialState = {
     movies: [],
     shows: [],
   },
+  isLoading: false,
 };
 
 const tmdbReducer = (state = initialState, action) => {
@@ -52,6 +54,11 @@ const tmdbReducer = (state = initialState, action) => {
           movies: payload.movies,
           shows: payload.shows,
         },
+      };
+    case SET_LOADING_STATUS:
+      return {
+        ...state,
+        isLoading: payload,
       };
     default:
       return state;
