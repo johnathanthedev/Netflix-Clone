@@ -13,5 +13,6 @@ And for the backend: Github Repo: https://github.com/johnathanthedev/Netflix-Clo
 
 - Ruby on Rails
 - Auth0
-- Future features
+
+## Future features
 - Transition to AWS S3 for data storage
