@@ -3,7 +3,6 @@ import { routes, protectedRoutes } from "./config/routes";
 import NavBar from "./components/main/NavBar";
 import Auth0ProviderWithHistory from "./components/auth/Auth0ProviderWithHistory";
 import PrivateRoute from "./components/auth/PrivateRoute";
-import Browse from "./components/views/user/Browse";
 
 function App() {
   return (
@@ -22,8 +21,6 @@ function App() {
                 />
               );
             })}
-            {/* <PrivateRoute exact key="1" path="/browse" element={Browse} /> */}
-
             {protectedRoutes.map((route, index) => {
               return (
                 <Route
