@@ -5,6 +5,17 @@ import NetflixCloneLogo from "../../assets/images/netflix/netflix-logo.png";
 import SearchIcon from "../../assets/images/search.svg";
 import BellIcon from "../../assets/images/bell.svg";
 
+const LogoutButton = () => {
+  const { logout } = useAuth0();
+  return (
+    <div>
+      <button onClick={() => logout({ returnTo: window.location.origin })}>
+        Log Out
+      </button>
+    </div>
+  );
+};
+
 const NavBar = () => {
   const location = useLocation();
 
@@ -103,6 +114,7 @@ const NavBar = () => {
                   alt="Bell Icon"
                 />
               </Nav.Link>
+              <LogoutButton />
               {/* <div>Profiles</div> */}
             </Nav>
           </Navbar.Collapse>

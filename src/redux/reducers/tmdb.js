@@ -1,10 +1,12 @@
 import {
   GET_POPULAR_MOVIES_AND_SHOWS,
+  GET_POPULAR_MOVIES,
+  GET_POPULAR_SHOWS,
   GET_TOP_RATED_MOVIES_AND_SHOWS,
   GET_MOVIE_AND_SHOW_GENRES,
   SET_CURRENT_POPULAR_MOVIE_OR_SHOW,
 } from "../../config/constants/tmdb";
-import { SET_LOADING_STATUS } from "../../config/constants/general";
+// import { SET_LOADING_STATUS } from "../../config/constants/general";
 
 const initialState = {
   topRatedMoviesAndShows: {
@@ -20,7 +22,6 @@ const initialState = {
     movies: [],
     shows: [],
   },
-  isLoading: false,
 };
 
 const tmdbReducer = (state = initialState, action) => {
@@ -30,8 +31,24 @@ const tmdbReducer = (state = initialState, action) => {
       return {
         ...state,
         popularMoviesAndShows: {
-          movies: payload.movies,
+          ...state.popularMoviesAndShows,
           shows: payload.shows,
+        },
+      };
+    case GET_POPULAR_MOVIES:
+      return {
+        ...state,
+        popularMoviesAndShows: {
+          ...state.popularMoviesAndShows,
+          movies: payload,
+        },
+      };
+    case GET_POPULAR_SHOWS:
+      return {
+        ...state,
+        popularMoviesAndShows: {
+          ...state.popularMoviesAndShows,
+          shows: payload,
         },
       };
     case GET_TOP_RATED_MOVIES_AND_SHOWS:
@@ -55,11 +72,11 @@ const tmdbReducer = (state = initialState, action) => {
           shows: payload.shows,
         },
       };
-    case SET_LOADING_STATUS:
-      return {
-        ...state,
-        isLoading: payload,
-      };
+    // case SET_LOADING_STATUS:
+    //   return {
+    //     ...state,
+    //     isLoading: payload,
+    //   };
     default:
       return state;
   }
