@@ -5,7 +5,6 @@ This is a clone of one of the most famous online streaming services - Netflix.
 For the frontend, the following is used: Github Repo: https://github.com/johnathanthedev/Netflix-Clone-RT
 
 - React
-- TypeScript
 - Bootstrap
 - Auth0 (for auth)
 
